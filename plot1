@@ -1,0 +1,7 @@
+EI <- readRDS("summarySCC_PM25.rds")
+sum <- tapply(NEI$Emissions, NEI$year, sum)
+names <- names(tapply(NEI$Emissions, NEI$year, sum))
+plot(tapply(NEI$Emissions, NEI$year, sum), type="l", xlab = "year", ylab = "sum", xaxt="n")
+axis(1, 1:length(names), labels = names)
+dev.copy(png, file = "plot1.png", height = 480, width = 480)
+dev.off()
